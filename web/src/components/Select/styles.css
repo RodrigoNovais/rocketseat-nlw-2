@@ -2,6 +2,7 @@
     position: relative;
 }
 
+.select-block + .input-block,
 .select-block + .select-block {
     margin-top: 1.4rem;
 }
