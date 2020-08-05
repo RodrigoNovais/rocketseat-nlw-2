@@ -25,10 +25,10 @@ const TeacherItem: React.FC = () => {
                     Preço/hora
                     <strong>R$ 20,00</strong>
                 </p>
-                <button type="button">
+                <a target="_blank" rel="noopener noreferrer" href={`https://wa.me/${0}`}>
                     <img src={whatsAppIcon} alt="WhatsApp"/>
                     Entrar em Contato
-                </button>
+                </a>
             </footer>
         </article>
     );
