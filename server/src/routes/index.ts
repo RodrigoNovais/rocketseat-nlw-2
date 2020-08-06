@@ -1,6 +1,9 @@
 import compose from 'koa-compose'
 import Router from 'koa-router'
 
+import classes from './classes'
+import connections from './connections'
+
 function combine(...routers: Router[]) {
     if (!Array.isArray(routers))
         routers = [...arguments]
@@ -15,4 +18,4 @@ function combine(...routers: Router[]) {
     return compose(middleware)
 }
 
-export default combine()
+export default combine(connections, classes)
