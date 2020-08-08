@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Image, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { RectButton } from 'react-native-gesture-handler'
@@ -9,10 +9,22 @@ import studyIcon from '../../assets/images/icons/study.png'
 import giveClassesIcon from '../../assets/images/icons/give-classes.png'
 import heartIconIcon from '../../assets/images/icons/heart.png'
 
+import api from '../../services/api'
+
 import styles from './styles'
 
 const Landing: React.FC = () => {
     const { navigate } = useNavigation()
+
+    const [connections, setConnections] = useState<number>(0)
+
+    useEffect(() => {
+        api.get('/connections').then(response => {
+            const { total } = response.data
+
+            setConnections(total)
+        })
+    }, [])
 
     const handleNavigateToGiveClasses = () => navigate('GiveClasses')
     const handleNavigateToStudyPages = () => navigate('Study')
@@ -39,7 +51,7 @@ const Landing: React.FC = () => {
             </View>
 
             <Text style={styles.totalConnections}>
-                Total de 258 conexões já realizadas. {' '}
+                Total de {connections} conexões já realizadas. {' '}
                 <Image source={heartIconIcon} />
             </Text>
         </View>
