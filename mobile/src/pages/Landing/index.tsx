@@ -15,6 +15,7 @@ const Landing: React.FC = () => {
     const { navigate } = useNavigation()
 
     const handleNavigateToGiveClasses = () => navigate('GiveClasses')
+    const handleNavigateToStudyPages = () => navigate('Study')
 
     return (
         <View style={styles.container}>
@@ -26,7 +27,7 @@ const Landing: React.FC = () => {
             </Text>
 
             <View style={styles.buttonsContainer}>
-                <RectButton style={[styles.button, styles.buttonPrimary]}>
+                <RectButton onPress={handleNavigateToStudyPages} style={[styles.button, styles.buttonPrimary]}>
                     <Image source={studyIcon} />
                     <Text style={styles.buttonText}>Estudar</Text>
                 </RectButton>
