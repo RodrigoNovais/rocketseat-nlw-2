@@ -10,7 +10,7 @@ import api from '../../services/api'
 import './styles.css'
 
 const TeacherList: React.FC = () => {
-    const [teachers, setTeachers] = useState([])
+    const [teachers, setTeachers] = useState<Teacher[]>([])
 
     const [subject, setSubject] = useState<string>('')
     const [weekDay, setWeekDay] = useState<number>(0)
@@ -69,7 +69,7 @@ const TeacherList: React.FC = () => {
             </PageHeader>
 
             <main>
-                { teachers.map((teacher: Teacher) => (
+                { teachers.map(teacher => (
                     <TeacherItem key={teacher.id} teacher={teacher} />
                 ))}
             </main>
