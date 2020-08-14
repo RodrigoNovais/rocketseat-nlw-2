@@ -1,5 +1,5 @@
 import compose from 'koa-compose'
-import Router from 'koa-router'
+import Router from '@koa/router'
 
 import classes from './classes'
 import connections from './connections'
