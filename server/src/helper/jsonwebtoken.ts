@@ -1,8 +1,9 @@
 import jwt, { VerifyErrors } from 'jsonwebtoken'
 import { publicKey, privateKey, verifyOptions, signOptions } from '../config'
+import { IUser } from '../models/user'
 
 export type IToken = {
-    id: number
+    id: NonNullable<IUser['id']>
 }
 
 export const verify = (token: string): Promise<object> => {
