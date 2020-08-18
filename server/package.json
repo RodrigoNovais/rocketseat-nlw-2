@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "tsnd --transpile-only --ignore-watch node_modules --respawn -r dotenv/config src/server.ts",
+        "knex:seed": "knex --knexfile knexfile.ts seed:run",
         "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
         "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback"
     },
@@ -12,7 +13,9 @@
     "author": "rodrigo novais <roo.novais@gmail.com>",
     "license": "ISC",
     "devDependencies": {
+        "@types/bcryptjs": "^2.4.2",
         "@types/hapi__joi": "^17.1.4",
+        "@types/jsonwebtoken": "^8.5.0",
         "@types/koa": "^2.11.3",
         "@types/koa-bodyparser": "^4.3.0",
         "@types/koa-helmet": "^5.2.0",
@@ -26,6 +29,8 @@
     "dependencies": {
         "@hapi/joi": "^17.1.1",
         "@koa/router": "^9.4.0",
+        "bcryptjs": "^2.4.3",
+        "jsonwebtoken": "^8.5.1",
         "knex": "^0.21.2",
         "koa": "^2.13.0",
         "koa-bodyparser": "^4.3.0",
