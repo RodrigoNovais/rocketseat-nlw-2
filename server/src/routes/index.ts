@@ -1,6 +1,7 @@
 import compose from 'koa-compose'
 import Router from '@koa/router'
 
+import auth from './auth'
 import classes from './classes'
 import connections from './connections'
 
@@ -18,4 +19,4 @@ function combine(...routers: Router[]) {
     return compose(middleware)
 }
 
-export default combine(connections, classes)
+export default combine(auth, connections, classes)
